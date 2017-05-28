@@ -1,2 +1,2 @@
 cd "C:\Program Files\Rails_Server"
-C:\tools\ruby23\bin\rails.bat server
+C:\tools\ruby24\bin\rails.bat server

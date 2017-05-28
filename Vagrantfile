@@ -3,10 +3,9 @@
 
 Vagrant.configure("2") do |config|
   # Base configuration for the VM and provisioner
-  config.vm.box = "metasploitable3"
+  config.vm.box = "win2008r2"
   config.vm.hostname = "metasploitable3"
   config.vm.communicator = "winrm"
-  #config.winrm.username = "Administrator"
 
   config.vm.network "private_network", type: "dhcp"
 
@@ -57,8 +56,8 @@ Vagrant.configure("2") do |config|
   # Vulnerability - Setup for Glassfish
   config.vm.provision :shell, path: "scripts/installs/setup_glassfish.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
-  config.vm.provision :shell, path: "scripts/installs/start_glassfish_service.bat"
-  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
+  # config.vm.provision :shell, path: "scripts/installs/start_glassfish_service.bat"
+  # config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
   # Vulnerability - Jenkins (1.8)
   config.vm.provision :shell, path: "scripts/installs/setup_jenkins.bat"
